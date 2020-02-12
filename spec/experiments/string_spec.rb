@@ -17,6 +17,9 @@ describe String do
 
     #example "nilの追加" do
     it "appends nil" do
+      pending('under investigation')
+      # @note When it need to put the example on hold temporarily, use "pending" method to describe the reason.
+      #       It can also do by replacing "example" with "xexample", "it" with "xit".
       s = "ABC"
       s << nil
       expect(s.size).to eq(4)
