@@ -16,7 +16,9 @@ describe String do
     end
 
     #example "nilの追加" do
-    it "doesn't append nil" do
+    it "doesn't append nil", :exception do
+      # @note When the tag is passed as a symbol by argument, it can execute only these exapmles by specifying the tag at calling rspec.
+
       #pending('under investigation')
       # @note When it need to put the example on hold temporarily, use "pending" method to describe the reason.
       #       It can also do by replacing "example" with "xexample", "it" with "xit".
