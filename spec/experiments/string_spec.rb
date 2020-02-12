@@ -14,5 +14,12 @@ describe String do
       s << "D"
       expect(s.size).to eq(4)
     end
+
+    #example "nilの追加" do
+    it "appends nil" do
+      s = "ABC"
+      s << nil
+      expect(s.size).to eq(4)
+    end
   end
 end
