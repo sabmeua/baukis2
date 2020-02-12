@@ -5,7 +5,11 @@ require "spec_helper"
 
 describe String do
   describe "#<<" do
+    # @note "describe" stands for group of test, it takes Class or String object as argument.
+    #       In this case, it is a test group for String class, among them a test group of "<<" method.
     example "文字の追加" do
+      # @note "example" can also be written as "it", then it can be described naturally.
+      #       "it 'appends a character' do"
       s = "ABC"
       s << "D"
       expect(s.size).to eq(4)
