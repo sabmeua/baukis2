@@ -4,6 +4,9 @@ class ApplicationController < ActionController::Base
   class Forbidden < ActionController::ActionControllerError; end
   class IpAddressRejected < ActionController::ActionControllerError; end
 
+  # @note When specifying rescue_from statements whos exception that has inheritance,
+  #       the statements of ancestor exception must be above the statements of progeny exception.
+  #       In this case, StandardError must be written above Forbidden and IpAddressRejected.
   rescue_from StandardError, with: :rescue500
   rescue_from Forbidden, with: :rescue403
   rescue_from IpAddressRejected, with: :rescue403
