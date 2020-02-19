@@ -19,3 +19,6 @@ before_script:
 
 script:
     - bundle exec rspec
+
+before_install:
+    - rm Gemfile.lock
