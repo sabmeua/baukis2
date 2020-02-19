@@ -8,7 +8,7 @@ rvm:
 services:
     - postgresql
 
-bundler_args: "--without development --deployment -j4"
+bundler_args: "--without development -j4"
 
 cache: bundler
 
