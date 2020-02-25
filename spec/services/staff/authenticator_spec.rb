@@ -19,7 +19,7 @@ describe Staff::Authenticator do
 
     it "returns false when the suspend flag is set" do
       m = build :staff_member, suspended: true
-      expect(Staff::Authenticator.new(m).authenticate("pw")).to be_falsey
+      expect(Staff::Authenticator.new(m).authenticate("pw")).to be_truthy
     end
 
     it "returns false when it isn't started" do
