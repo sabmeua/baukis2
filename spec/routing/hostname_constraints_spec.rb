@@ -21,6 +21,16 @@ describe "Routing" do
     )
   end
 
+  it "tests customer top page" do
+    config = Rails.application.config.baukis2
+    url = "http://#{config[:customer][:host]}/#{config[:customer][:path]}"
+    expect(get: url).to route_to(
+      host: config[:customer][:host],
+      controller: "customer/top",
+      action: "index"
+    )
+  end
+
   it "isn't routable if the host name isn't defined" do
     expect(get: "http://foo.example.jp").not_to be_routable
   end
