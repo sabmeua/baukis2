@@ -8,18 +8,17 @@ Rails.application.routes.draw do
     # @note Giving the "as" option allows to name the routing,
     #       then it will be able to access as :staff_login in ERB template.
     get "login" => "sessions#new", as: :login
-    post "session" => "sessions#create", as: :session
-    delete "session" => "sessions#destroy"
+    resource :session, only: [ :create, :destroy ]
     resource :account, except: [ :new, :create, :destroy ]
   end
 
   namespace :admin do
     root "top#index"
     get "login" => "sessions#new", as: :login
-    post "session" => "sessions#create", as: :session
-    delete "session" => "sessions#destroy"
+    resource :session, only: [ :create, :destroy ]
     resources :staff_members
     # @note "resources" method adds 7 actions that is same as the previous commit.
+    #       Also it can restrict the actions by specifying argument :only and :except.
   end
 
   namespace :customer do
