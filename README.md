@@ -1,3 +1,9 @@
+# This is my study of Ruby on Rails
+
+I sometimes wrote down what I learned with `@note` in the source codes.
+
+--------
+
 # Baukis2 - 顧客管理システム
 
 [![Build Status](https://travis-ci.org/sabmeua/baukis2.svg?branch=master)](https://travis-ci.org/sabmeua/baukis2)
