@@ -1,7 +1,28 @@
 require 'rails_helper'
 
+# @note The method "describe" can take two arguments like a below line,
+#       the second argument "Before login" stands for "context". It can be als written as follows,
+#
+#         describe "Staff member management by administrator" do
+#           context "Before login" do
+#             ...
+#
+describe "Staff member management by administrator", "Before login" do
+  include_examples "a protected admin controller", "admin/staff_members"
+end
+
 describe "Staff member management by administrator" do
   let(:administrator) { create(:administrator) }
+
+  before do
+    post admin_session_url,
+      params: {
+      admin_login_form: {
+        email: administrator.email,
+        password: "pw"
+      }
+    }
+  end
 
   # @note By including FactoryBot::Syntax::Method in rails_helper.rb allows
   #       to call "attributes_for" and "create" methods.
