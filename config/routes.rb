@@ -20,7 +20,13 @@ Rails.application.routes.draw do
       root "top#index"
       get "login" => "sessions#new", as: :login
       resource :session, only: [ :create, :destroy ]
-      resources :staff_members
+      resources :staff_members do
+        resources :staff_events, only: [ :index ]
+        # @note The "resources" inside of the other resources block are called nested resources.
+        #       It defines below routing in this case.
+        #       method: GET, path: /admin/staff_members/:staff_member_id/staff_events, action: index
+      end
+      resources :staff_events, only: [ :index ]
       # @note "resources" method adds 7 actions that is same as the previous commit.
       #       Also it can restrict the actions by specifying argument :only and :except.
     end
