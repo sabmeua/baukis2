@@ -68,4 +68,16 @@ describe "Staff member management by administrator" do
       # @note "expect{X}.not_to change {Y}" is typical description to check the value has not changed.
     end
   end
+
+  it "logs out forcely when the suspend flag is set" do
+    administrator.update_column(:suspended, true)
+    get admin_staff_members_url
+    expect(response).to redirect_to(admin_login_url)
+  end
+
+  it "tests session timeout" do
+    travel_to Staff::Base::TIMEOUT.from_now.advance(seconds: 1)
+    get admin_staff_members_url
+    expect(response).to redirect_to(admin_login_url)
+  end
 end
