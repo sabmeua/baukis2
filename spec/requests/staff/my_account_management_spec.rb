@@ -16,7 +16,7 @@ describe "Staff account management" do
     }
   end
 
-  describe "List up accounts" do
+  describe "Show account" do
     let(:staff_member) { create(:staff_member) }
 
     it "succeeds" do
